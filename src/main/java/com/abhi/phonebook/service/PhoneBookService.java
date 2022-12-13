@@ -1,39 +1,18 @@
 package com.abhi.phonebook.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.abhi.phonebook.model.PhoneBook;
-import com.abhi.phonebook.repo.PhoneBookRepository;
 
-@Service
-public class PhoneBookService {
+public interface PhoneBookService {
 
-	@Autowired
-	PhoneBookRepository phoneBookRepository;
+	public String savePhoneBook(PhoneBook phoneBook);
 
-	public PhoneBook getPhoneBookById(int contactId) {
-		return phoneBookRepository.findById(contactId).get();
-	}
+	public PhoneBook getPhoneBookById(int contactId);
 
-	public List<PhoneBook> getAllPhoneBook() {
-		List<PhoneBook> phoneList = new ArrayList<PhoneBook>();
-		phoneList = phoneBookRepository.findAll();
-		return phoneList;
-	}
+	public List<PhoneBook> getAllPhoneBook();
 
-	public void savePhoneBook(PhoneBook phoneBook) {
-		phoneBookRepository.save(phoneBook);
-	}
+	public String updatePhoneBook(PhoneBook phoneBook);
 
-	public void updatePhoneBook(PhoneBook phoneBook) {
-		phoneBookRepository.save(phoneBook);
-	}
-
-	public void deletePhoneBookRecord(int contactId) {
-		phoneBookRepository.deleteById(contactId);
-	}
+	public String deletePhoneBookRecord(int contactId);
 }

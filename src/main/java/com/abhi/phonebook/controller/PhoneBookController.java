@@ -35,20 +35,18 @@ public class PhoneBookController {
 	}
 
 	@PostMapping("/savePhoneNumber")
-	private int savePhoneNumber(@RequestBody PhoneBook phoneBook) {
-		phoneBookService.savePhoneBook(phoneBook);
-		return phoneBook.getContactId();
+	private String savePhoneNumber(@RequestBody PhoneBook phoneBook) {
+		return phoneBookService.savePhoneBook(phoneBook);
 	}
 
 	@PutMapping("/updatePhoneNumber")
-	private PhoneBook updatePhoneNumber(@RequestBody PhoneBook phoneBook) {
-		phoneBookService.savePhoneBook(phoneBook);
-		return phoneBook;
+	private String updatePhoneNumber(@RequestBody PhoneBook phoneBook) {
+		return phoneBookService.savePhoneBook(phoneBook);
 	}
-	
+
 	@DeleteMapping("/deletePhoneNumber/{contactId}")
-	private void deletePhoneBookRecord(@PathVariable("contactId") int contactId) {
-		phoneBookService.deletePhoneBookRecord(contactId);
+	private String deletePhoneBookRecord(@PathVariable("contactId") int contactId) {
+		return phoneBookService.deletePhoneBookRecord(contactId);
 	}
 
 }

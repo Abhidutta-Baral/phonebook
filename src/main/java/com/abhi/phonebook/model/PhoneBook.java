@@ -13,10 +13,10 @@ import lombok.Data;
 @Data
 public class PhoneBook {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	int contactId;
-	String contactName;
-	String contactEmail;
-	int contactNumber;
+	@GeneratedValue
+	private Integer contactId;
+	private String contactName;
+	private String contactEmail;
+	private Integer contactNumber;
 
 }
